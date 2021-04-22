@@ -11,26 +11,6 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 });
 
-client
-  .query({
-    query: gql`
-      query GetLaunches {
-        launches(limit: 5) {
-          launch_date_utc
-          launch_success
-          rocket {
-            rocket_name
-          }
-          links {
-            video_link
-          }
-          details
-          id
-        }
-      }
-    `
-  })
-
 ReactDOM.render(
   <ApolloProvider client={client}>
     <App />
